@@ -26,7 +26,14 @@ module.exports = {
                 test:/\.css$/,
                 use: extractTextPlugin.extract({
                     fallback: "style-loader",
-                    use: "css-loader",
+                    use:[
+                        {
+                            loader:"css-loader"
+                        },
+                        {
+                            loader:"postcss-loader",
+                        },
+                    ],
                     publicPath:'../'
                 }),
                 // use:[
@@ -70,6 +77,8 @@ module.exports = {
                         loader: "css-loader"
                     }, {
                         loader: "less-loader"
+                    }, {
+                        loader: "postcss-loader",  //postcss.config.js 中配置的内容
                     }],
                     fallback: "style-loader",
                     publicPath:'../'
