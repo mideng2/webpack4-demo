@@ -30,8 +30,6 @@ module.exports = {
                     publicPath:'../'
                 }),
                 // use:[
-                //
-                //
                 //     {
                 //         loader: "style-loader",
                 //         options: {
@@ -62,7 +60,60 @@ module.exports = {
 
                     }
                 ]
+            },
+
+            //加入less
+            {
+                test:/\.less$/,
+                use: extractTextPlugin.extract({
+                    use: [{
+                        loader: "css-loader"
+                    }, {
+                        loader: "less-loader"
+                    }],
+                    fallback: "style-loader",
+                    publicPath:'../'
+                }),
+                // use:[
+                //         {
+                //             loader: "style-loader" // creates style nodes from JS strings
+                //         },
+                //         {
+                //             loader: "css-loader" // translates CSS into CommonJS
+                //         },
+                //         {
+                //             loader: "less-loader" // compiles Less to CSS
+                //         }
+                // ]
+
+            },
+
+            //加入scss
+            {
+                test:/\.scss$/,
+                use: extractTextPlugin.extract({
+                    use: [{
+                        loader: "css-loader"
+                    }, {
+                        loader: "sass-loader"
+                    }],
+                    fallback: "style-loader",
+                    publicPath:'../'
+                }),
+                // use:[
+                //         {
+                //             loader: "style-loader" // creates style nodes from JS strings
+                //         },
+                //         {
+                //             loader: "css-loader" // translates CSS into CommonJS
+                //         },
+                //         {
+                //             loader: "less-loader" // compiles Less to CSS
+                //         }
+                // ]
+
             }
+
         ]
     },
 

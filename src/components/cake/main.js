@@ -1,4 +1,4 @@
-import './style.css'
-import '../../css/common.css'
+import './style.less'
+import '../../css/common.scss'
 
 document.querySelector('#cake').innerText = 'i am a cake';
